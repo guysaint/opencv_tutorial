@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.pylab as plt
 
 #--① 그레이 스케일로 영상 읽기
-img = cv2.imread('../img/test2.jpg', cv2.IMREAD_GRAYSCALE)
+img = cv2.imread('../img/yate.jpg', cv2.IMREAD_GRAYSCALE)
 
 #--② 직접 연산한 정규화
 img_f = img.astype(np.float32)
