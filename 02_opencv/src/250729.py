@@ -24,8 +24,8 @@ training = cv2.resize(training, (0, 0), fx=scale2, fy=scale2)
 
 # 숨길 위치 지정
 targets = [
-    {'img': couple, 'pos': (365, 757)},
-    {'img': training, 'pos': (182, 625)},
+    {'img': couple, 'pos': (365, 757), 'name': 'couple'},
+    {'img': training, 'pos': (182, 625), 'name': 'training'},  # 운동하는 사람!
 ]
 
 # 배경에 두 인물 합성
@@ -45,35 +45,39 @@ for target in targets:
     fg = cv2.bitwise_and(rgb, rgb, mask=mask)
     combined[y:y+h, x:x+w] = cv2.add(bg, fg)
 
-# 마우스 상태 변수
+# 상태 변수
 mouse_x, mouse_y = -1, -1
 mask_radius = 70
 found = False
+wrong = False  # 틀린 클릭 여부
+
+# 한글 폰트
+font_path = "C:/Windows/Fonts/malgun.ttf"
+font = ImageFont.truetype(font_path, 32)
 
 # 클릭 여부 확인 함수
-def is_inside_target(x, y):
+def check_click(x, y):
     for target in targets:
         tx, ty = target['pos']
         th, tw = target['img'].shape[:2]
         if tx <= x <= tx + tw and ty <= y <= ty + th:
-            return True
-    return False
+            return target['name']
+    return None
 
-# 마우스 콜백 함수
+# 마우스 콜백
 def mouse_event(event, x, y, flags, param):
-    global mouse_x, mouse_y, found
+    global mouse_x, mouse_y, found, wrong
     if event == cv2.EVENT_MOUSEMOVE:
         mouse_x, mouse_y = x, y
     elif event == cv2.EVENT_LBUTTONDOWN:
-        if is_inside_target(x, y):
+        result = check_click(x, y)
+        if result == 'training':  # 정답!
             found = True
+        else:
+            wrong = True  # 틀림 표시
 
 cv2.namedWindow('Sniper Game')
 cv2.setMouseCallback('Sniper Game', mouse_event)
-
-# 사용할 한글 폰트 경로 (Windows 기준)
-font_path = "C:/Windows/Fonts/malgun.ttf"
-font = ImageFont.truetype(font_path, 32)
 
 while True:
     black_overlay = np.zeros_like(combined)
@@ -87,30 +91,40 @@ while True:
     else:
         display = black_overlay
 
-    # 한글 텍스트 추가 (Pillow 방식)
+    # PIL로 한글 텍스트 처리
     pil_img = Image.fromarray(display)
     draw = ImageDraw.Draw(pil_img)
-    text = '운동하는 사람을 찾으세요'
-    text_size = draw.textbbox((0, 0), text, font=font)
+
+    # 안내 문구
+    instruction = '운동하는 사람을 찾으세요'
+    text_size = draw.textbbox((0, 0), instruction, font=font)
     text_x = (display.shape[1] - (text_size[2] - text_size[0])) // 2
     text_y = 20
-    draw.text((text_x, text_y), text, font=font, fill=(255, 255, 255))
+    draw.text((text_x, text_y), instruction, font=font, fill=(255, 255, 255))
 
-    # 찾았을 경우 문구 표시
+    # 클릭 결과 표시
     if found:
-        found_text = '찾았습니다!'
-        found_size = draw.textbbox((0, 0), found_text, font=font)
-        found_x = (display.shape[1] - (found_size[2] - found_size[0])) // 2
-        found_y = (display.shape[0] - (found_size[3] - found_size[1])) // 2
-        draw.text((found_x, found_y), found_text, font=font, fill=(0, 255, 0))
-        display = np.array(pil_img)
-        cv2.imshow('Sniper Game', display)
-        cv2.waitKey(2000)
-        break
+        result_text = '찾았습니다!'
+        color = (0, 255, 0)
+    elif wrong:
+        result_text = '틀렸습니다. 다시 찾아보세요'
+        color = (0, 0, 255)
+    else:
+        result_text = None
 
-    # 다시 OpenCV 이미지로 변환
+    if result_text:
+        result_size = draw.textbbox((0, 0), result_text, font=font)
+        result_x = (display.shape[1] - (result_size[2] - result_size[0])) // 2
+        result_y = (display.shape[0] - (result_size[3] - result_size[1])) // 2
+        draw.text((result_x, result_y), result_text, font=font, fill=color)
+
+    # OpenCV로 다시 변환
     display = np.array(pil_img)
     cv2.imshow('Sniper Game', display)
+
+    if found:
+        cv2.waitKey(2000)
+        break
 
     if cv2.waitKey(1) == 27:
         break
