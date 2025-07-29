@@ -15,7 +15,7 @@ print("default", img.shape, "color", bgr.shape, "unchanged", bgra.shape)
 
 cv2.imshow('img',img)
 cv2.imshow('bgr', bgr)
-cv2.imshow('bgr', bgra[:,:,3])
+cv2.imshow('alpha', bgra[:,:,3])
 
 cv2.waitKey(0)
 cv2.destroyAllWindows()
