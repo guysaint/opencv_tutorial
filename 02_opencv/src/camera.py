@@ -1,7 +1,7 @@
 
 import cv2
 
-cap = cv2.VideoCapture(1)               # 0번 카메라 장치 연결 ---①
+cap = cv2.VideoCapture(1)               # 1번 카메라 장치 연결 ---①
 if cap.isOpened():                      # 캡쳐 객체 연결 확인
     while True:
         ret, img = cap.read()           # 다음 프레임 읽기

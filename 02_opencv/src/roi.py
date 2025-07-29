@@ -39,5 +39,5 @@ def onMouse(event,x,y,flags,param):     # 마우스 이벤트 핸들 함수  ---
 img = cv2.imread('../img/like_lenna.png')
 cv2.imshow('img', img)
 cv2.setMouseCallback('img', onMouse) # 마우스 이벤트 등록 ---⑧
-cv2.waitKey()
+cv2.waitKey() 
 cv2.destroyAllWindows()
