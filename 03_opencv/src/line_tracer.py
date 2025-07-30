@@ -20,6 +20,23 @@ if cap.isOpened():
             h, w = roi.shape
             left_roi = roi[:, :w//2] #배경 영역
             right_roi = roi[:, w//2:] #선 추정 영역
+            
+            # 이진화 및 윤곽선 추출
+            _, binary = cv2.threshold(roi, 50, 255, cv2.THRESH_BINARY_INV)  # 검정선 강조
+            contours, _ = cv2.findContours(binary, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+
+            if contours:
+                #가장 큰 윤곽선 선택
+                largest = max(contours, key=cv2.contourArea)
+                M = cv2.moments(largest)
+                if M["m00"] !=0:
+                    cx = int(M["m10"] / M["m00"])
+                    # ROI는 gray[240:250, :] -> y=240~250 중간인 245로 설정
+                    cv2.circle(img, (cx, 245), 5, (0, 0, 255), -1)
+                    print(f"Contour center x: {cx}")
+
+            '''
+            #-------이 부분은 1차 이진화 계산
             # 이진화 및 중심 추출
             binary = (roi < 50).astype(np.uint8)
             black_count = np.sum(binary, axis=0)
@@ -32,7 +49,8 @@ if cap.isOpened():
 
                 # 5. 원본 영상에 중심 좌표 시각화
                 cv2.circle(img, (center_x, 245), 5, (0, 0, 255), -1)
-
+            '''
+            
             # 화면 출력
             cv2.imshow('camera (with line center)', img)
 
@@ -63,7 +81,7 @@ if cap.isOpened():
 
 
             #ROI에 검정선이 실제로 들어오는지 확인
-            #cv2.imshow('ROI view', roi)
+            cv2.imshow('ROI view', roi)
             
             
             #그레이 히스토그램 계산
