@@ -20,6 +20,23 @@ if cap.isOpened():
             h, w = roi.shape
             left_roi = roi[:, :w//2] #배경 영역
             right_roi = roi[:, w//2:] #선 추정 영역
+            # 이진화 및 중심 추출
+            binary = (roi < 50).astype(np.uint8)
+            black_count = np.sum(binary, axis=0)
+
+            # → 검정 픽셀이 존재할 때만 중심 표시
+            if np.sum(black_count) > 0:
+                x_coords = np.arange(black_count.shape[0])
+                center_x = int(np.sum(x_coords * black_count) / np.sum(black_count))
+                cv2.circle(img, (center_x, 245), 5, (0, 0, 255), -1)
+
+                # 5. 원본 영상에 중심 좌표 시각화
+                cv2.circle(img, (center_x, 245), 5, (0, 0, 255), -1)
+
+            # 화면 출력
+            cv2.imshow('camera (with line center)', img)
+
+
 
             # 각각의 히스토그램 계산
             hist_left = cv2.calcHist([left_roi], [0], None, [256], [0, 256])
@@ -31,7 +48,7 @@ if cap.isOpened():
             #디버깅용 ROI 시각 표시
             cv2.line(img, (0, 240), (img.shape[1], 240), (255, 0, 0), 2)
             cv2.line(img, (0, 249), (img.shape[1], 249), (255, 0, 0), 2)
-            cv2.imshow('camera(gray)', gray)
+            #cv2.imshow('camera(gray)', gray)
             
             # 검정색(0~50) 구간의 총 빈도 비교
             black_left = np.sum(hist_left[:50])
@@ -46,7 +63,9 @@ if cap.isOpened():
 
 
             #ROI에 검정선이 실제로 들어오는지 확인
-            cv2.imshow('ROI view', roi)
+            #cv2.imshow('ROI view', roi)
+            
+            
             #그레이 히스토그램 계산
             #hist = cv2.calcHist([gray], [0], None, [256], [0,256])
             #cv2.normalize(hist, hist, 0, 100, cv2.NORM_MINMAX)
