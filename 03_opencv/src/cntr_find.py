@@ -21,11 +21,13 @@ contour2, hierarchy = cv2.findContours(imthres, cv2.RETR_EXTERNAL, cv2.CHAIN_APP
 print('도형의 갯수: %d(%d)'%(len(contour), len(contour2)))
 
 #모든 좌표를 갖는 컨투어 그리기, 초록색
-cv2.drawContours(img, contour, -1, (0,255,0), 4)
-
+#cv2.drawContours(img, contour, -1, (0,255,0), 4)
+cv2.drawContours(img, contour, 1, (0,255,0), 4) #네모만 적용
 #꼭지점 좌표만을 갖는 컨투어 그리기, 초록색
-cv2.drawContours(img2, contour2, -1, (0,255,0), 4)
+#cv2.drawContours(img2, contour2, -1, (0,255,0), 4)
+cv2.drawContours(img2, contour2, 1, (0,255,0), 4) # 네모만 적용
 
+'''
 #컨투어 모든 좌표를 작은 파랑색 점(원)으로 표시
 for i in contour:
     for j in i:
@@ -35,6 +37,7 @@ for i in contour:
 for i in contour2:
     for j in i:
         cv2.circle(img2, tuple(j[0]), 1, (255,0,0), -1)
+'''
 
 #결과 출력
 cv2.imshow('CHAIN_APPROX_NONE',img)
