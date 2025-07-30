@@ -11,10 +11,12 @@ if cap.isOpened():                      # 캡쳐 객체 연결 확인
             cv2.imshow('camera', gray)   # GRAY로 카메라 표시
             #hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV) #BGR -> HSV로 변환
             #cv2.imshow('camera', hsv) #HSV로 카메라 표시
-            if cv2.waitKey(1)  & 0xFF == ord('q'):
+            key = cv2.waitKey(1) & 0xFF
+            if key == ord('q')
                 break
-            if cv2.waitKey(1) == ord("s"):            # s키를 누르면
+            if key == ord("s"):            # s키를 누르면
                 cv2.imwrite('../img/photo.jpg', img)    #phto.jpg로 사진 저장
+                
         else:
             print('no frame')
             break
