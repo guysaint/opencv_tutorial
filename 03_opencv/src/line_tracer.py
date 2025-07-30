@@ -14,7 +14,9 @@ if cap.isOpened():
             gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
             # 스캔라인 ROI 설정(세로 10px 범위, 중앙 수평선 부근)
-            roi = gray[240:250, :]
+            roi_top = 200
+            roi_bottom = 250
+            roi = gray[roi_top:roi_bottom, :]
 
             # ROI를 절반으로 나눔
             h, w = roi.shape
@@ -34,7 +36,10 @@ if cap.isOpened():
                     # ROI는 gray[240:250, :] -> y=240~250 중간인 245로 설정
                     cv2.circle(img, (cx, 245), 5, (0, 0, 255), -1)
                     print(f"Contour center x: {cx}")
-
+                # drawContours: ROI 내부 contour를 전체 이미지로 보정해서 시각화
+            for cnt in contours:
+                cnt_shifted = cnt + [0, roi_top]  # y 좌표 보정
+                cv2.drawContours(img, [cnt_shifted], -1, (0, 255, 0), 1)
             '''
             #-------이 부분은 1차 이진화 계산
             # 이진화 및 중심 추출
