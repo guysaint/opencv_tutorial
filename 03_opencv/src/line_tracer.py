@@ -2,26 +2,13 @@ import cv2
 
 
 cap = cv2.VideoCapture(1)             # 1번 카메라 장치 연결 ---①
-cap2 = cv2.cvtColor(cap, cv2.COLOR_BGR2GRAY)
 if cap.isOpened():                      # 캡쳐 객체 연결 확인
     while True:
         ret, img = cap.read()
                    # 다음 프레임 읽기
         if ret:
-            cv2.imshow('camera', img)   # 다음 프레임 이미지 표시
-            if cv2.waitKey(1)  & 0xFF == ord('q'):    # 1ms 동안 키 입력 대기 ---②
-                break                   # 아무 키라도 입력이 있으면 중지
-        else:
-            print('no frame')
-            break
-else:
-    print("can't open camera.")
-if cap2.isOpened():                      # 캡쳐 객체 연결 확인
-    while True:
-        ret, img = cap2.read()
-                   # 다음 프레임 읽기
-        if ret:
-            cv2.imshow('camera', img)   # 다음 프레임 이미지 표시
+            gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+            cv2.imshow('camera', gray)   # 다음 프레임 이미지 표시
             if cv2.waitKey(1)  & 0xFF == ord('q'):    # 1ms 동안 키 입력 대기 ---②
                 break                   # 아무 키라도 입력이 있으면 중지
         else:
@@ -31,5 +18,4 @@ else:
     print("can't open camera.")
 
 cap.release()             # 자원 반납
-cap2.release()
 cv2.destroyAllWindows()
