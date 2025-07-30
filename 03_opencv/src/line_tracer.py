@@ -14,8 +14,8 @@ if cap.isOpened():
             gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
             # 스캔라인 ROI 설정(세로 10px 범위, 중앙 수평선 부근)
-            roi_top = 200
-            roi_bottom = 250
+            roi_top = 0
+            roi_bottom = 500
             roi = gray[roi_top:roi_bottom, :]
 
             # ROI를 절반으로 나눔
@@ -24,7 +24,7 @@ if cap.isOpened():
             right_roi = roi[:, w//2:] #선 추정 영역
             
             # 이진화 및 윤곽선 추출
-            _, binary = cv2.threshold(roi, 50, 255, cv2.THRESH_BINARY_INV)  # 검정선 강조
+            _, binary = cv2.threshold(roi, 80, 255, cv2.THRESH_BINARY_INV)  # 검정선 강조
             contours, _ = cv2.findContours(binary, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 
             if contours:
