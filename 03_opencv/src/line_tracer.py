@@ -19,5 +19,5 @@ if cap.isOpened():                      # 캡쳐 객체 연결 확인
 else:
     print("can't open camera.")
 
-cap.release()             # 자원 반납
+cap.release()    #자원반납
 cv2.destroyAllWindows()
