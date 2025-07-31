@@ -18,7 +18,7 @@ def onMouse(event, x, y, flags, param): # 마우스 이벤트 콜백 함수 구�
         pts_cnt+=1
         if pts_cnt == 4:                # 좌표가 4개 수집 되면
             # 좌표 4개 중 상하 좌우 찾기
-            sm = pts.sum(axis=1)                # 4쌍의 좌표 각각 x+y 게산
+            sm = pts.sum(axis=1)                # 4쌍의 좌표 각각 x+y 계산
             diff = np.diff(pts, axis = 1)       # 4쌍의 좌표 각가 x-y 계산
 
             topLeft = pts[np.argmin(sm)]        # x+y가 가장 작은 값이 좌상단 좌표
