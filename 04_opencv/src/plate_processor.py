@@ -142,8 +142,10 @@ def onMouse(event, x, y, flags, param):
                 11,                              # 블록 크기 (홀수)
                 2                                # 평균에서 뺄 값 (임계값 조정)
 )
-
-            # 후처리 추가 4: Canny 엣지 검출
+            # 후처리 추가 4: 미디언 필터로 노이즈 제거
+            processed = cv2.medianBlur(processed, 3)
+            
+            # 후처리 추가 5: Canny 엣지 검출
             processed = cv2.Canny(processed, 100, 200)
 
             resized = cv2.resize(processed, (300, 150), interpolation=cv2.INTER_AREA)
