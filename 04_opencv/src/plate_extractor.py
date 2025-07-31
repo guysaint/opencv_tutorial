@@ -14,47 +14,35 @@ for name, path in img_paths.items():
     if img is None:
         print(f"{name} 로드 실패")
         continue
-    rows, cols = img.shape[:2]
-    draw = img.copy()
-    win_name = f'Plate_Scanning_{name}'
-
     imgs[name] = {
         'img': img,
-        'draw': draw,
-        'rows': rows,
-        'cols': cols,
-        'win_name': win_name,
-        'pts': np.zeros((4,2), dtype=np.float32),
-        'pts_cnt': 0
+        'draw': img.copy(),
+        'pts': np.zeros((4, 2), dtype=np.float32),
+        'pts_cnt': 0,
+        'win_name': f'Plate_Scanning_{name}',
+        'scanned': None
     }
-
-
-
-
-pts_cnt = 0
-pts = np.zeros((4,2), dtype = np.float32)
+current_name = None  # 현재 처리 중인 이미지 이름
 
 
 def onMouse(event, x, y, flags, param):
-    global pts_cnt, pts
-    name = param                       # 이미지 이름(예:'car_01')
+    global current_name
     img_data = imgs[name]
 
     if  img_data['pts_cnt']>=4:                     # 이미 4개 클릭한 상태라면 무시
         return
-    if event == cv2.EVENT_LBUTTONDOWN: # 마우스 왼쪽 클릭시
-        draw_img = imgs[name]['draw']
-        win = imgs[name]['win_name']
-
-        cv2.circle(draw_img, (x,y), 10, (0,255,0), -1) # 좌표에 초록색 동그라미 표시
-        cv2.imshow(win, draw_img)
+    if event == cv2.EVENT_LBUTTONDOWN:              # 마우스 왼쪽 클릭시
+        
+        cv2.circle(img_data['draw'], (x,y), 10, (0,255,0), -1) # 좌표에 초록색 동그라미 표시
+        cv2.imshow(img_data['win_name'], img_data['draw'])
 
         img_data['pts'][img_data['pts_cnt']] = [x,y]
         img_data['pts_cnt'] += 1
         
 
-        if pts_cnt == 4:            # 4개의 좌표가 수집 되면
+        if img_data['pts_cnt'] == 4:            # 4개의 좌표가 수집 되면
             # 좌표 4개 중 상하 좌우 찾기
+            pts = img_data['pts']
             sm = pts.sum(axis=1)                # 4쌍의 좌표 각각 x+y 계산
             diff = np.diff(pts, axis = 1)       # 4쌍의 좌표 각각 x-y 계산
 
@@ -82,15 +70,36 @@ def onMouse(event, x, y, flags, param):
 
             #원근 변환 적용
             result = cv2.warpPerspective(imgs[name]['img'], mtrx, (width, height))
-            cv2.imshow(f'scanned_{name}', result)
+            img_data['scanned'] = result
+            # 결과 이미지 보여주기
+            scanned_win = f'scanned_{current_name}'
+            cv2.imshow(scanned_win, result)
+            
+            # 이미지 저장
+            save_path = f'../extracted_plates/{current_name}_scanned.jpg'
+            cv2.imwrite(save_path, result)
+            print(f'{save_path} 저장 완료')
+        
     
-# 결과 값 출력
+# 이미지 하나씩 처리
 for name in imgs:
-    win = imgs[name]['win_name']
-    draw = imgs[name]['draw']
-    cv2.imshow(win, imgs[name]['draw'])
-    cv2.setMouseCallback(win, onMouse, param=name)   
-cv2.waitKey(0)
-cv2.destroyAllWindows()
+    current_name = name
+    img_data = imgs[name]
 
+    # 초기화
+    img_data['draw'] = img_data['img'].copy()
+    img_data['pts_cnt'] = 0
+    img_data['pts'] = np.zeros((4,2), dtype=np.float32)
+    
+    cv2.imshow(img_data['win_name'], img_data['draw'])
+    cv2.setMouseCallback(img_data['win_name'], onMouse)
+
+    print(f'{name} 변호판 꼭지점 4곳을 클릭 후 아무 키나 누르세요...')
+
+    cv2.waitKey(0)
+    cv2.destroyWindow(img_data['win_name'])
+    if img_data['scanned'] is not None:
+        cv2.destroyWindow(f'scanned_{name}')
+
+cv2.destroyAllWindows()
                  
