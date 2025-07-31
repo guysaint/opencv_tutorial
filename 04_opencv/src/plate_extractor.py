@@ -93,8 +93,8 @@ def onMouse(event, x, y, flags, param):
 # 이미지 하나씩 처리
 for name in imgs:
     current_name = name
-    img_data = imgs[name]
-
+    img_data = imgs[name] 
+    
     # 초기화
     img_data['draw'] = img_data['img'].copy()
     img_data['pts_cnt'] = 0
