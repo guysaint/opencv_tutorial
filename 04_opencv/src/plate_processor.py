@@ -126,7 +126,9 @@ def onMouse(event, x, y, flags, param):
             
             # 후처리 추가 1: grayscale 변환
             processed = cv2.cvtColor(result, cv2.COLOR_BGR2GRAY)
-            maximize_contrast(processed):
+            # 후처리 추가 2: 대비 최대화
+            processed = maximize_contrast(processed)
+            
 
             resized = cv2.resize(processed, (300, 150), interpolation=cv2.INTER_AREA)
 
