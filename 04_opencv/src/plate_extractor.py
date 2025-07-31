@@ -23,7 +23,9 @@ for name, path in img_paths.items():
         'draw': draw,
         'rows': rows,
         'cols': cols,
-        'win_name': win_name
+        'win_name': win_name,
+        'pts': np.zeros((4,2), dtype=np.float32),
+        'pts_cnt': 0
     }
 
 
@@ -36,6 +38,10 @@ pts = np.zeros((4,2), dtype = np.float32)
 def onMouse(event, x, y, flags, param):
     global pts_cnt, pts
     name = param                       # 이미지 이름(예:'car_01')
+    img_data = imgs[name]
+
+    if  img_data['pts_cnt']>=4:                     # 이미 4개 클릭한 상태라면 무시
+        return
     if event == cv2.EVENT_LBUTTONDOWN: # 마우스 왼쪽 클릭시
         draw_img = imgs[name]['draw']
         win = imgs[name]['win_name']
@@ -43,8 +49,9 @@ def onMouse(event, x, y, flags, param):
         cv2.circle(draw_img, (x,y), 10, (0,255,0), -1) # 좌표에 초록색 동그라미 표시
         cv2.imshow(win, draw_img)
 
-        pts[pts_cnt] = [x,y]
-        pts_cnt += 1
+        img_data['pts'][img_data['pts_cnt']] = [x,y]
+        img_data['pts_cnt'] += 1
+        
 
         if pts_cnt == 4:            # 4개의 좌표가 수집 되면
             # 좌표 4개 중 상하 좌우 찾기
