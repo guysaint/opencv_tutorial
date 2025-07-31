@@ -134,8 +134,16 @@ def onMouse(event, x, y, flags, param):
 
             # 후처리 추가 2: 가우시안 블러
             processed = cv2.GaussianBlur(processed, (5, 5), 0)
+            
+            # 후처리 추가 3: 적응형 임계처리
+            processed = cv2.adaptiveThreshold(processed, 255,
+                cv2.ADAPTIVE_THRESH_GAUSSIAN_C,  # 가우시안 가중치 사용
+                cv2.THRESH_BINARY_INV,           # 흰 글자 + 검은 배경을 반전 (번호판용)
+                11,                              # 블록 크기 (홀수)
+                2                                # 평균에서 뺄 값 (임계값 조정)
+)
 
-            # Canny 엣지 검출
+            # 후처리 추가 4: Canny 엣지 검출
             processed = cv2.Canny(processed, 100, 200)
 
             resized = cv2.resize(processed, (300, 150), interpolation=cv2.INTER_AREA)
