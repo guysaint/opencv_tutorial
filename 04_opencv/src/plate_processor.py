@@ -2,6 +2,7 @@ import cv2
 import numpy as np
 import datetime
 import os
+from matplotlib import pyplot as plt
 
 
 img_paths = {'car_01': '../img/car_01.jpg',
@@ -30,6 +31,7 @@ current_name = None  # 현재 처리 중인 이미지 이름
 
 def onMouse(event, x, y, flags, param):
     global current_name
+    
     img_data = imgs[name]
 
     if  img_data['pts_cnt']>=4:                     # 이미 4개 클릭한 상태라면 무시
@@ -74,24 +76,27 @@ def onMouse(event, x, y, flags, param):
             #원근 변환 적용
             result = cv2.warpPerspective(imgs[name]['img'], mtrx, (width, height))
             img_data['scanned'] = result
+            resized = cv2.resize(img_data['scanned'], (300, 150), interpolation=cv2.INTER_AREA)
+
+
             # 결과 이미지 보여주기
             scanned_win = f'scanned_{current_name}'
-            cv2.imshow(scanned_win, result)
+            cv2.imshow(scanned_win, resized)
             
             # 이미지 저장
             save_dir = "../extracted_plates"
             if not os.path.exists(save_dir):
                 os.makedirs(save_dir)
 
-            timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
-            filename = f"../extracted_plates/plate_{timestamp}.jpg"
-            save_path = f'../extracted_plates/{current_name}_scanned.jpg'
-            cv2.imwrite(filename, result)
+            # timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+            # filename = f"../extracted_plates/plate_{timestamp}.jpg"
+            save_path = f'{save_dir}/plate_{idx+1:02d}.jpg'
+            cv2.imwrite(save_path, resized)
             print(f'{save_path} 저장 완료')
         
     
 # 이미지 하나씩 처리
-for name in imgs:
+for idx, name in enumerate(imgs):
     current_name = name
     img_data = imgs[name] 
     
