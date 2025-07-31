@@ -124,10 +124,7 @@ def onMouse(event, x, y, flags, param):
             cv2.imwrite(save_path, resized)
             print(f'{save_path} 저장 완료')
             
-            # 예외 방지를 위한 안전 체크
-            if result is None:
-                print("원근 변환된 이미지(result)가 비어 있습니다.")
-                return
+            
             # 후처리 추가 1: grayscale 변환
             processed = cv2.cvtColor(resized, cv2.COLOR_BGR2GRAY)
             
@@ -137,6 +134,9 @@ def onMouse(event, x, y, flags, param):
 
             # 후처리 추가 2: 가우시안 블러
             processed = cv2.GaussianBlur(processed, (5, 5), 0)
+
+            # Canny 엣지 검출
+            processed = cv2.Canny(processed, 100, 200)
 
             resized = cv2.resize(processed, (300, 150), interpolation=cv2.INTER_AREA)
 
