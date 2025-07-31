@@ -8,8 +8,8 @@ row, cols = img.shape[0:2] #가져오는 이미지 크기
 dx, dy = 100, 50 #이동할 픽셀거리
 
 #변환 행렬
-mtrx = np.float32([1,0,dx],
-           [0,1,dy])
+mtrx = np.float32([[1,0,dx],
+                   [0,1,dy]])
 #단순 이동
 dst = cv2.warpAffine(img, mtrx, (cols+dx, row+dy))
 
