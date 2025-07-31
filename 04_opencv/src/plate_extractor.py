@@ -1,5 +1,8 @@
 import cv2
 import numpy as np
+import datetime
+import os
+
 
 img_paths = {'car_01': '../img/car_01.jpg',
              'car_02': '../img/car_02.jpg',
@@ -76,8 +79,14 @@ def onMouse(event, x, y, flags, param):
             cv2.imshow(scanned_win, result)
             
             # 이미지 저장
+            save_dir = "../extracted_plates"
+            if not os.path.exists(save_dir):
+                os.makedirs(save_dir)
+
+            timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+            filename = f"../extracted_plates/plate_{timestamp}.jpg"
             save_path = f'../extracted_plates/{current_name}_scanned.jpg'
-            cv2.imwrite(save_path, result)
+            cv2.imwrite(filename, result)
             print(f'{save_path} 저장 완료')
         
     
