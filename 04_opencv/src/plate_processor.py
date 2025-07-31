@@ -27,6 +27,25 @@ for name, path in img_paths.items():
         'scanned': None
     }
 current_name = None  # 현재 처리 중인 이미지 이름
+'''
+def load_extracted_plate():
+    # 저장된 번호판 이미지 경로
+    plate_dir = '../extracted_plates'
+    # 번호판 이미지 파일 불러오기
+    plate_paths = {}
+    for filename in sorted(os.listdir(plate_dir)):
+        if filename.endswith(".jpg"):
+            path = os.path.join(plate_dir, filename)
+            img = cv2.imread(path)
+            if img is not None:
+                key = os.path.splitext(filename)[0] # plate_01 같은 키
+                plate_paths[key] = img
+    print(f'불러온 번호판 수: {len(plate_paths)}')
+    return plate_paths
+'''
+
+
+
 
 
 def onMouse(event, x, y, flags, param):
