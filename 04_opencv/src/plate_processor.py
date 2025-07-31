@@ -42,7 +42,7 @@ def load_extracted_plate():
                 plate_paths[key] = img
     print(f'불러온 번호판 수: {len(plate_paths)}')
     return plate_paths
-'''
+
 def maximize_contrast(processed):
     # 모폴로지 연산용 구조화 요소
     kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (2, 2))
@@ -58,7 +58,7 @@ def maximize_contrast(processed):
     
     # 추가: 히스토그램 균등화로 대비 더욱 향상
     enhanced = cv2.equalizeHist(enhanced)
-
+'''
 
 
 def onMouse(event, x, y, flags, param):
@@ -124,11 +124,19 @@ def onMouse(event, x, y, flags, param):
             cv2.imwrite(save_path, resized)
             print(f'{save_path} 저장 완료')
             
+            # 예외 방지를 위한 안전 체크
+            if result is None:
+                print("원근 변환된 이미지(result)가 비어 있습니다.")
+                return
             # 후처리 추가 1: grayscale 변환
-            processed = cv2.cvtColor(result, cv2.COLOR_BGR2GRAY)
-            # 후처리 추가 2: 대비 최대화
-            processed = maximize_contrast(processed)
+            processed = cv2.cvtColor(resized, cv2.COLOR_BGR2GRAY)
             
+            if processed is None or processed.size == 0:
+                print("❗ Grayscale 변환 실패. 이미지가 비어 있음.")
+                return
+
+            # 후처리 추가 2: 가우시안 블러
+            processed = cv2.GaussianBlur(processed, (5, 5), 0)
 
             resized = cv2.resize(processed, (300, 150), interpolation=cv2.INTER_AREA)
 
@@ -137,7 +145,7 @@ def onMouse(event, x, y, flags, param):
             os.makedirs(processed_dir, exist_ok=True)
             processed_name = f'processed_{current_name}.jpg'
             processed_path = os.path.join(processed_dir, processed_name)
-            cv2.imwrite(processed_path, resized)
+            cv2.imwrite(processed_path, processed)
             print(f'후처리 이미지 저장 완료: {processed_name}')
         
     
