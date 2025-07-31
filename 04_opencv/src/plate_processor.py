@@ -30,7 +30,6 @@ current_name = None  # 현재 처리 중인 이미지 이름
 
 def onMouse(event, x, y, flags, param):
     global current_name
-    
     img_data = imgs[name]
 
     if  img_data['pts_cnt']>=4:                     # 이미 4개 클릭한 상태라면 무시
@@ -84,15 +83,15 @@ def onMouse(event, x, y, flags, param):
             if not os.path.exists(save_dir):
                 os.makedirs(save_dir)
 
-            # timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
-            # filename = f"../extracted_plates/plate_{timestamp}.jpg"
-            save_path = f'{save_dir}/plate_{idx+1:02d}.jpg'
-            cv2.imwrite(save_path, img_data['scanned'])
+            timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+            filename = f"../extracted_plates/plate_{timestamp}.jpg"
+            save_path = f'../extracted_plates/{current_name}_scanned.jpg'
+            cv2.imwrite(filename, result)
             print(f'{save_path} 저장 완료')
         
     
 # 이미지 하나씩 처리
-for idx, name in enumerate(imgs):
+for name in imgs:
     current_name = name
     img_data = imgs[name] 
     
