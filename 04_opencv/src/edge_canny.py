@@ -1,7 +1,7 @@
 import cv2, time
 import numpy as np
 
-img = cv2.imread('../img/sudoku.jpg')
+img = cv2.imread('../img/car_01.jpg')
 
 # 케니 엣지 적용
 edges = cv2.Canny(img, 100,200)
