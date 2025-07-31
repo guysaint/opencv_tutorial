@@ -87,7 +87,8 @@ def onMouse(event, x, y, flags, param):
             # timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
             # filename = f"../extracted_plates/plate_{timestamp}.jpg"
             save_path = f'{save_dir}/plate_{idx+1:02d}.jpg'
-            cv2.imwrite(save_path, img_data['scanned'])
+            resized = cv2.resize(img_data['scanned'], (300, 150), interpolation=cv2.INTER_AREA)
+            cv2.imwrite(save_path, resized)
             print(f'{save_path} 저장 완료')
         
     
