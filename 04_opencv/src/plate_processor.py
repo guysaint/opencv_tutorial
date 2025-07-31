@@ -44,7 +44,13 @@ def load_extracted_plate():
     return plate_paths
 '''
 
+def post_process_plate(plate_img, show=False):
+    # 그레이스케일 변환
+    gray = cv2.cvtColor(plate_img, cv2.COLOR_BGR2GRAY)
 
+    if show:
+        cv2.imshow('Post-Processed: Gray', gray)
+        cv2.imwrite('../')
 
 
 
@@ -107,11 +113,21 @@ def onMouse(event, x, y, flags, param):
             if not os.path.exists(save_dir):
                 os.makedirs(save_dir)
 
-            # timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
-            # filename = f"../extracted_plates/plate_{timestamp}.jpg"
             save_path = f'{save_dir}/plate_{idx+1:02d}.jpg'
             cv2.imwrite(save_path, resized)
             print(f'{save_path} 저장 완료')
+            
+            # 후처리 추가 1: grayscale 변환
+            processed = cv2.cvtColor(result, cv2.COLOR_BGR2GRAY)
+            resized = cv2.resize(processed, (300, 150), interpolation=cv2.INTER_AREA)
+
+            # 저장경로
+            processed_dir = '../processed_plate'
+            os.makedirs(processed_dir, exist_ok=True)
+            processed_name = f'processed_{current_name}.jpg'
+            processed_path = os.path.join(processed_dir, processed_name)
+            cv2.imwrite(processed_path, resized)
+            print(f'후처리 이미지 저장 완료: {processed_name}')
         
     
 # 이미지 하나씩 처리
