@@ -1,7 +1,7 @@
 import cv2, time
 import numpy as np
 
-img = cv2.imread('../img/morph_dot.jpg')
+img = cv2.imread('../img/morph_dot.png')
 
 # 구조화 요소 커널, 사각형 (3x3) 생성
 k = cv2.getStructuringElement(cv2.MORPH_RECT, (3,3))
