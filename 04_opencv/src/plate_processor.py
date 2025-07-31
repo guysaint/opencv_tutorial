@@ -43,14 +43,21 @@ def load_extracted_plate():
     print(f'불러온 번호판 수: {len(plate_paths)}')
     return plate_paths
 '''
+def maximize_contrast(processed):
+    # 모폴로지 연산용 구조화 요소
+    kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (2, 2))
+     # Top Hat: 밝은 세부사항 (흰 배경) 강조
+    tophat = cv2.morphologyEx(processed, cv2.MORPH_TOPHAT, kernel)
 
-def post_process_plate(plate_img, show=False):
-    # 그레이스케일 변환
-    gray = cv2.cvtColor(plate_img, cv2.COLOR_BGR2GRAY)
+    # Black Hat: 어두운 세부사항 (검은 글자) 강조  
+    blackhat = cv2.morphologyEx(processed, cv2.MORPH_BLACKHAT, kernel)
 
-    if show:
-        cv2.imshow('Post-Processed: Gray', gray)
-        cv2.imwrite('../')
+    # 대비 향상 적용
+    enhanced = cv2.add(processed, tophat)
+    enhanced = cv2.subtract(enhanced, blackhat)
+    
+    # 추가: 히스토그램 균등화로 대비 더욱 향상
+    enhanced = cv2.equalizeHist(enhanced)
 
 
 
@@ -119,6 +126,8 @@ def onMouse(event, x, y, flags, param):
             
             # 후처리 추가 1: grayscale 변환
             processed = cv2.cvtColor(result, cv2.COLOR_BGR2GRAY)
+            maximize_contrast(processed):
+
             resized = cv2.resize(processed, (300, 150), interpolation=cv2.INTER_AREA)
 
             # 저장경로
