@@ -45,7 +45,14 @@ def onMouse(event, x, y, flags, param): # 마우스 이벤트 콜백 함수 구�
 
             #원근 변환 적용
             result = cv2.warpPerspective(img, mtrx, (width, height))
+            
+            result_gray = cv2.cvtColor(result, cv2.COLOR_BGR2GRAY)  # 컬러 → 그레이 변환
+            result_f = result_gray.astype(np.float32)
+            result_norm = ((result_f - result_f.min()) * 255 / (result_f.max() - result_f.min())).astype(np.uint8)
+            result_bgr = cv2.cvtColor(result_norm, cv2.COLOR_GRAY2BGR)  # 다시 컬러로
+            
             cv2.imshow('scanned', result)
+
 
 # 결과 값 출력
 cv2.imshow(win_name, img)
