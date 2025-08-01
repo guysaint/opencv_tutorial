@@ -8,7 +8,7 @@ import webbrowser
 #gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 cap = cv2.VideoCapture(1)
 
-
+last_opened_url = ""
 # 이미지 캡처 조건 추가
 while (cap.isOpened()):
     ret, img = cap.read()
@@ -36,9 +36,11 @@ while (cap.isOpened()):
         cv2.putText(img,text,(d.rect[0], d.rect[1]-50), cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255, 0, 255), 1, cv2.LINE_AA)
     
         if barcode_data.startswith("http://") or barcode_data.startswith("https://"):
-            webbrowser.open(barcode_data)
-            print(f'웹사이트로 이동: {barcode_data}')
-            open_link = True  
+            if barcode_data != last_opened_url:
+                webbrowser.open(barcode_data)
+                print(f'웹사이트로 이동: {barcode_data}')
+                last_opened_url = barcode_data
+            
 
     cv2.imshow('camera',img)
 
