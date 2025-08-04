@@ -14,7 +14,7 @@ MIN_MATCH = 10 # 최소 매칭점 개수(이 값 이하면 매칭 실패로 간�
 
 # ORB 검출기 생성
 # ORB_create(1000)는 이미지에서 1000개의 특징점을 찾는 알고리즘
-detector = cv2.ORB_create(1000)
+detector = cv2.ORB_create(3000)
 
 # Flann 추출기 생성
 # 두 이미지의 특징점을 빠르게 매칭
@@ -35,7 +35,7 @@ while cap.isOpened():
     ret, frame = cap.read() 
     if not ret:
         break
-        
+    frame = cv2.flip(frame, 1)    # 좌우 반전 추가
     if img1 is None:  # 등록된 이미지 없음, 카메라 바이패스
         res = frame
     else:             # 등록된 이미지 있는 경우, 매칭 시작
