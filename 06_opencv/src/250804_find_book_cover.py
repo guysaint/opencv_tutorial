@@ -6,6 +6,8 @@
 '''
 
 import cv2, numpy as np
+import glob
+import os
 
 # 초기 설정
 img1 = None # ROI로 선택할 이미지
@@ -35,7 +37,6 @@ while cap.isOpened():
     ret, frame = cap.read() 
     if not ret:
         break
-    frame = cv2.flip(frame, 1)    # 좌우 반전 추가
     if img1 is None:  # 등록된 이미지 없음, 카메라 바이패스
         res = frame.copy()
     
@@ -120,13 +121,71 @@ while cap.isOpened():
     
     if key == 27:    # Esc, 종료
         break          
-    elif key == ord(' '):  # 스페이스바를 누르면 ROI로 img1 설정
+    elif key == ord(' '):
         h_frame, w_frame = frame.shape[:2]
-        roi_w, roi_h = 250, 350  # 원하는 ROI 크기 (고정값)
+        roi_w, roi_h = 200, 400
         x = (w_frame - roi_w) // 2
         y = (h_frame - roi_h) // 2
         img1 = frame[y:y+roi_h, x:x+roi_w]
         print("ROI 고정 선택됨: (%d, %d, %d, %d)" % (x, y, roi_w, roi_h))
+
+        # ORB 기반 검색 시작
+        kp1, des1 = detector.detectAndCompute(img1, None)
+
+        search_dir = '../img/books'
+        img_paths = glob.glob(os.path.join(search_dir, '*.jpg'))
+
+        best_score = 0
+        best_img = None
+        best_path = None
+        best_kp = None
+        best_matches = None
+
+        for path in img_paths:
+            img2 = cv2.imread(path)
+            if img2 is None:
+                continue
+            kp2, des2 = detector.detectAndCompute(img2, None)
+            if des1 is None or des2 is None:
+                continue
+
+            matches = matcher.knnMatch(des1, des2, k=2)
+
+            # ratio test
+            good = []
+            for m_n in matches:
+                if len(m_n) == 2:
+                    m, n = m_n
+                    if m.distance < 0.75 * n.distance:
+                        good.append(m)
+
+            if len(good) > best_score:
+                best_score = len(good)
+                best_img = img2
+                best_path = path
+                best_kp = kp2
+                best_matches = good
+
+        # 결과 시각화
+        if best_img is not None:
+            print(f'Best match: {best_path}, 매칭된 특징점 수: {best_score}')
+
+            roi_resized = cv2.resize(img1, (300, 400))
+            match_resized = cv2.resize(best_img, (300, 400))
+            combined = np.hstack((roi_resized, match_resized))
+
+            text = f"Matching points: {best_score}"
+            cv2.putText(combined, text, (10, 30), cv2.FONT_HERSHEY_SIMPLEX,
+                        1.0, (0, 255, 0), 2, cv2.LINE_AA)
+
+            # 매칭 결과 창에 특징점 선도 그릴 수 있음
+            match_vis = cv2.drawMatches(img1, kp1, best_img, best_kp, best_matches, None,
+                                        matchColor=(0, 255, 0),
+                                        flags=cv2.DRAW_MATCHES_FLAGS_NOT_DRAW_SINGLE_POINTS)
+
+            cv2.imshow('Matching Result', combined)
+            cv2.imshow('Feature Matches', match_vis)
+
 
 cap.release()                          
 cv2.destroyAllWindows()
