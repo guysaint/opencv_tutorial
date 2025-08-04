@@ -1,13 +1,23 @@
+'''
+1. 사용자가 스페이스 바를 누름
+2. ROI 선택 영역을 마우스 드래그로 지정
+3. 스페이스 바를 눌러 참조 이미지 저장
+4. 실시간 매칭 시작
+'''
+
 import cv2, numpy as np
 
-img1 = None
-win_name = 'Camera Matching'
-MIN_MATCH = 10
+# 초기 설정
+img1 = None # ROI로 선택할 이미지
+win_name = 'Camera Matching' # 윈되우 이름
+MIN_MATCH = 10 # 최소 매칭점 개수(이 값 이하면 매칭 실패로 간주)
 
 # ORB 검출기 생성
+# ORB_create(1000)는 이미지에서 1000개의 특징점을 찾는 알고리즘
 detector = cv2.ORB_create(1000)
 
 # Flann 추출기 생성
+# 두 이미지의 특징점을 빠르게 매칭
 FLANN_INDEX_LSH = 6
 index_params = dict(algorithm=FLANN_INDEX_LSH,
                    table_number=6,
@@ -30,27 +40,34 @@ while cap.isOpened():
         res = frame
     else:             # 등록된 이미지 있는 경우, 매칭 시작
         img2 = frame
-        gray1 = cv2.cvtColor(img1, cv2.COLOR_BGR2GRAY)
-        gray2 = cv2.cvtColor(img2, cv2.COLOR_BGR2GRAY)
+        # [step 1]
+        gray1 = cv2.cvtColor(img1, cv2.COLOR_BGR2GRAY) # 참조 이미지
+        gray2 = cv2.cvtColor(img2, cv2.COLOR_BGR2GRAY) # 현재 카메라 프레임
         
+        # [step 2]
         # 키포인트와 디스크립터 추출
-        kp1, desc1 = detector.detectAndCompute(gray1, None)
-        kp2, desc2 = detector.detectAndCompute(img2, None)
+        # kp: keypoint 특징점의 위치정보
+        # desc: 특징점의 특성을 숫자로 표현
+        kp1, desc1 = detector.detectAndCompute(gray1, None) # 참조 이미지의 특징점
+        kp2, desc2 = detector.detectAndCompute(img2, None)  # 카메라의 이미지 특징점
         
+
         # 디스크립터가 없으면 건너뛰기
         if desc1 is None or desc2 is None or len(desc1) < 2 or len(desc2) < 2:
             res = frame
         else:
-            # k=2로 knnMatch
+            # [step 3]
+            # k=2로 knnMatch : 각 특징점마다 가장 유사한 2개의 후보를 찾음
             matches = matcher.knnMatch(desc1, desc2, 2)
             
+            # [step 4]
             # 이웃 거리의 75%로 좋은 매칭점 추출
             ratio = 0.75
             good_matches = []
             for match_pair in matches:
                 if len(match_pair) == 2:
-                    m, n = match_pair
-                    if m.distance < n.distance * ratio:
+                    m, n = match_pair # 1등, 2등
+                    if m.distance < n.distance * ratio: # 1등이 2등보다 25%이상 좋으면
                         good_matches.append(m)
             
             print('good matches:%d/%d' % (len(good_matches), len(matches)))
@@ -65,6 +82,7 @@ while cap.isOpened():
                 dst_pts = np.float32([kp2[m.trainIdx].pt for m in good_matches]).reshape(-1, 1, 2)
                 
                 # 원근 변환 행렬 구하기
+                # RANSAC은 잘못된 매칭점들 outline 제거
                 mtrx, mask = cv2.findHomography(src_pts, dst_pts, cv2.RANSAC, 5.0)
                 
                 if mtrx is not None:
@@ -75,6 +93,7 @@ while cap.isOpened():
                         # 마스크를 리스트로 변환 (정수형으로)
                         matchesMask = [int(x) for x in mask.ravel()]
                         
+                        # 결과 시각화
                         # 원본 영상 좌표로 원근 변환 후 영역 표시
                         h, w = img1.shape[:2]
                         pts = np.float32([[[0, 0]], [[0, h-1]], [[w-1, h-1]], [[w-1, 0]]])
