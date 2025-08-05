@@ -21,7 +21,7 @@ search_dir = '../img/books'
 img_paths = glob.glob(os.path.join(search_dir, '*.jpg'))
 
 # 카메라 연결
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(1)
 cap.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
 cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
 
