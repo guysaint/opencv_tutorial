@@ -55,7 +55,7 @@ k-means_color.py 터미널 창 결과
 
 ### 결과
   
-![k-means_handwritten.py 결과](./result_img/k-means_handwritten_result2.png) 
+![k-means_handwritten.py 결과](./result_img/k-means_handwritten_result.png) 
 ---
 ### 오전 실습
 
@@ -76,5 +76,34 @@ k-means_color.py 터미널 창 결과
 ![터미널 창 결과(상세 분석)](./result_img/250805_k-means_color_terminal_result.png)
 
 터미널 창 결과(상세 분석)
+
+---
+## 머신러닝 - K-최근접 이웃(KNN)
+
+- 지도 학습 알고리즘 중 하나
+
+[코드: kNN_random.py](./src/kNN_random.py)
+
+### 결과
+
+![kNN_random.py 결과](./result_img/knn-random_result.png)
+
+kNN_random.py 결과
+
+---
+
+[kNN_mnist.py - 모듈](./src/kNN_mnist.py)
+
+[kNN_handwritten.py](./src/kNN_handwritten.py)
+
+### 결과
+
+![4027 인식 결과](./result_img/knn-handwritten_result.png)
+
+4027 인식 결과
+
+![직접 쓴 숫자 8542 인식 결과](./result_img/knn-handwritten_result2.png)
+
+직접 쓴 숫자 8542 인식 결과
 
 ---
