@@ -87,6 +87,17 @@ bottom_combined = np.hstack((palette_resized, bar_chart_resized))
 # 최종 이미지 결합 (세로 방향)
 final_result = np.vstack((merged_top, bottom_combined))
 
+# 상세 분석 출력
+print(f"\n[ 상세 분석 결과 (K={K}) ]")
+print(f"클러스터\tB\tG\tR\t픽셀 수\t\t비율(%)")
+for i in range(K):
+    b, g, r = center[i]
+    count = counts[i]
+    ratio = ratios[i] * 100
+    print(f"#{i}\t\t{b}\t{g}\t{r}\t{count:,}\t\t{ratio:.1f}%")
+
+
+
 # 결과 출력
 cv2.imshow('KMeans with Palette + Bar Chart', final_result)
 cv2.waitKey(0)
