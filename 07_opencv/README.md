@@ -55,7 +55,7 @@ k-means_color.py 터미널 창 결과
 
 ### 결과
   
-![k-means_handwritten.py 결과](./result_img/k-means_handwritten_result.png) 
+![k-means_handwritten.py 결과](./result_img/k-means_handwritten_result2.png) 
 ---
 ### 오전 실습
 
