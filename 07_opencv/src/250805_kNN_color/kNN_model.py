@@ -2,6 +2,9 @@ import csv
 import numpy as np
 from sklearn.model_selection import train_test_split
 from collections import Counter
+import pickle
+from sklearn.neighbors import KNeighborsClassifier
+
 
 # CSV 불러오기
 data = []
@@ -55,3 +58,13 @@ for k in [1, 3, 5, 7, 9]:
             correct += 1
     acc = correct / len(X_test)
     print(f"K={k}: 정확도={acc:.2%}")
+
+# 모델 학습
+knn = KNeighborsClassifier(n_neighbors=5)
+knn.fit(X_train, y_train)
+
+# 모델 저장
+import pickle
+with open("knn_model.pkl", "wb") as f:
+    pickle.dump(knn, f)
+print("모델이 knn_model.pkl로 저장되었습니다.")
