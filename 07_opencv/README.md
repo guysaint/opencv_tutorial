@@ -37,10 +37,31 @@
 
 ![k-means_color.py 결과](./result_img/k-means_color_result.png)
 
-k-means_color.py 결과
 
 ![k-means_color_result2.png](./result_img/k-means_color_result2.png)
 k-means_color.py 터미널 창 결과
 ---
 
-[mnist.py](./src/mnist.py)
+[mnist.py](./src/mnist.py) - mnist 모듈
+[k-means_handwritten.py](./src/k-means_handwritten.py)
+- 미리 만들어둔 모듈(mnist.py)을 사용함.
+![k-means_handwritten.py 결과](./result_img/k-means_handwritten_result.png)
+---
+### 오전 실습
+
+- 실습 차선 색상 분류
+    - 시각적 결과: 원본 이미지
+    - 색상 팔레트: 추출된 3가지 대표 색상
+    - 분포 차트: 각 색상이 차지하는 비율
+    - 상세 분석: BGR 값과 픽셀 수/비율 정보
+
+[250805_kmeans_color.py](./src/250805_kmeans_color.py)
+
+![250805_kmeans_color.py 결과](./result_img/250805_k-means_color_result.png)
+
+250805_kmeans_color.py 결과
+
+![터미널 창 결과(상세 분석)](./result_img/250805_k-means_color_terminal_result.png)
+
+
+---
