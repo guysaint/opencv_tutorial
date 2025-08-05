@@ -9,7 +9,7 @@
 - 클러스터링: **어떤 데이터들이 주어졌을때, 그 데이터들을 클러스터로 그루핑 시켜주는 것.**
 - 
     
-    ![클러스터끼리 그루핑 됨](./img/cluster.png)
+    ![클러스터끼리 그루핑 됨](./result_img/cluster.png)
     
     클러스터끼리 그루핑 됨
     
@@ -26,7 +26,7 @@
 - 10: 다양한 초기 중심값으로 반복 시도 횟수
 - cv2.KMEANS_RANDOM_CENTERS: 초기 중심 값 선택 방법
     
-    ![k-means_random.py 결과](./img/k-means_random_result.png)
+    ![k-means_random.py 결과](./result_img/k-means_random_result.png)
     
     k-means_random.py 결과
     
@@ -35,11 +35,11 @@
 
 [k-means_color.py](./src/k-means_color.py)
 
-![k-means_color.py 결과](./img/k-means_color_result.png)
+![k-means_color.py 결과](./result_img/k-means_color_result.png)
 
 k-means_color.py 결과
 
-![k-means_color_result2.png](./img/k-means_color_result2.png)
+![k-means_color_result2.png](./result_img/k-means_color_result2.png)
 
 ---
 
