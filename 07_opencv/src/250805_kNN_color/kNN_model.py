@@ -22,3 +22,16 @@ labels = np.array(labels)
 X_train, X_test, y_train, y_test = train_test_split(data, labels, test_size=0.2, random_state=42)
 print(f"[INFO] 총 샘플 수: {len(data)}")
 print(f"[INFO] 학습용: {len(X_train)}개, 테스트용: {len(X_test)}개")
+
+# K-NN 함수
+def euclidean_distance(x1, x2):
+    return np.sqrt(np.sum((x1 - x2) ** 2))
+
+def knn_predict(X_train, y_train, x_test, k=3):
+    distances = [euclidean_distance(x_test, x) for x in X_train]
+    sorted_indices = np.argsort(distances)[:k]
+    nearest_labels = y_train[sorted_indices]
+    prediction = Counter(nearest_labels).most_common(1)[0][0]
+    return prediction
+print("테스트 샘플 예측 결과:", knn_predict(X_train, y_train, X_test[0], k=3))
+print("실제 라벨:", y_test[0])
