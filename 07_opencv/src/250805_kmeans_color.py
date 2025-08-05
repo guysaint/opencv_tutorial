@@ -7,13 +7,17 @@
 import numpy as np
 import cv2
 
-K = 3 # 군집화 갯수
+K = 16 # 군집화 갯수
 img = cv2.imread('../img/load_line.jpg')
 img = cv2.resize(img, (600,396))
 data = img.reshape((-1,3)).astype(np.float32)
-# 데이터 평균을 구할 때 소수점 이하값을 가질 수 있으므로 변환
-# 반복 중지 조건
 
+
+
+
+
+
+# 데이터 평균을 구할 때 소수점 이하값을 가질 수 있으므로 변환
 criteria = (cv2.TERM_CRITERIA_EPS + cv2.TERM_CRITERIA_MAX_ITER, 10, 1.0)
 
 # 평균 클러스터링 적용
@@ -31,8 +35,14 @@ res = center[label.flatten()]
 # 원본 영상의 형태로 변환
 res = res.reshape((img.shape))
 
+# 팔레트 시각화용 이미지 만들기
+palette = np.zeros((100, 300, 3), dtype=np.uint8) # 팔레트를 그리기 위한 공간 확보
+width = 100
+for i, color in enumerate(center):
+    palette[:, i*width:(i+1)*width] = color
 # 결과 출력
 merged = np.hstack((img, res))
 cv2.imshow('Kmeans_color', merged)
+cv2.imshow('Palette', palette)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
