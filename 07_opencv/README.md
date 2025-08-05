@@ -40,7 +40,7 @@
 k-means_color.py 결과
 
 ![k-means_color_result2.png](./result_img/k-means_color_result2.png)
-
+k-means_color.py 터미널 창 결과
 ---
 
 [mnist.py](./src/mnist.py)
