@@ -45,3 +45,13 @@ for i in range(len(X_test)):
 
 accuracy = correct / len(X_test)
 print(f"[정확도] K=3일 때 정확도: {accuracy:.2%}")
+
+# 여러 k값 실험
+for k in [1, 3, 5, 7, 9]:
+    correct = 0
+    for i in range(len(X_test)):
+        pred = knn_predict(X_train, y_train, X_test[i], k=k)
+        if pred == y_test[i]:
+            correct += 1
+    acc = correct / len(X_test)
+    print(f"K={k}: 정확도={acc:.2%}")
