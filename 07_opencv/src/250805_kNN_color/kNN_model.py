@@ -35,3 +35,13 @@ def knn_predict(X_train, y_train, x_test, k=3):
     return prediction
 print("테스트 샘플 예측 결과:", knn_predict(X_train, y_train, X_test[0], k=3))
 print("실제 라벨:", y_test[0])
+
+# 예측 & 정확도 측정
+correct = 0
+for i in range(len(X_test)):
+    pred = knn_predict(X_train, y_train, X_test[i], k=3)
+    if pred == y_test[i]:
+        correct += 1
+
+accuracy = correct / len(X_test)
+print(f"[정확도] K=3일 때 정확도: {accuracy:.2%}")
