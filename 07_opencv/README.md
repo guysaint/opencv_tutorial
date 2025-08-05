@@ -131,7 +131,9 @@ kNN_random.py 결과
     - 다양한 조명 조건에서 촬영
     - 옷감 질감(면, 니트, 데님 등) 다양화
     - CSV 파일로 데이터 저장(color_dataset.csv)
-
+---
+ - 구현코드: [collect_colors.py](./src/250805_kNN_color/collect_colors.py)
+ - 구현 결과: ![]
  ## 3단계: K-NN 모델 구현
  - 데이터 전처리
     - CSV 파일에서 학습 데이터 로드
