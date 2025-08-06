@@ -7,7 +7,7 @@ import svm_mnist_hog_train
 # 훈련해서 저장한 SVM 객체 읽기 ---① 
 svm = cv2.ml.SVM_load('./svm_mnist.xml')
 # 인식할 손글씨 이미지 읽기 ---②
-image = cv2.imread('../img/627413.jpg')
+image = cv2.imread('../img/174921.jpg')
 cv2.imshow("image", image)
 cv2.waitKey(0) 
 
