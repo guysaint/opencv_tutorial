@@ -1,0 +1,145 @@
+{
+	"json_version": 1,
+	"file_name": "512_ND_0000_CF_047.jpg",
+	"image_name": "512_ND_0000_CF_047.jpg",
+	"image_size": [
+		1920,
+		1080
+	],
+	"num_of_object": 9,
+	"objects": [
+		{
+			"class_name": "invisible_signal",
+			"instance_id": 3,
+			"data": [
+				[
+					329.9267578125,
+					285.4384765625
+				],
+				[
+					399.0,
+					314.10000000000036
+				]
+			],
+			"attribute": {
+				"signal": "None"
+			},
+			"distance": 67.0504057721421,
+			"angle": [
+				8.909426430810543,
+				2.6614165896338524
+			]
+		},
+		{
+			"class_name": "invisible_signal",
+			"instance_id": 2,
+			"data": [
+				[
+					499.85546875,
+					275.1171875
+				],
+				[
+					522.8000000000011,
+					295.40000000000146
+				]
+			],
+			"attribute": {
+				"signal": "None"
+			},
+			"distance": 66.60817870587486,
+			"angle": [
+				6.662904790139153,
+				2.77593548143421
+			]
+		},
+		{
+			"class_name": "vehicular_signal",
+			"instance_id": 0,
+			"data": [
+				[
+					519.2783203125,
+					271.6025390625
+				],
+				[
+					580.9000000000015,
+					294.90000000000146
+				]
+			],
+			"attribute": {
+				"signal": "green"
+			},
+			"distance": 66.4314934650714,
+			"angle": [
+				6.004156639926478,
+				2.756152581650526
+			]
+		},
+		{
+			"class_name": "vehicular_signal",
+			"instance_id": 151,
+			"data": [
+				[
+					993.3837890625,
+					285.8955078125
+				],
+				[
+					1071.4217514349475,
+					306.01303338809885
+				]
+			],
+			"attribute": {
+				"signal": "green"
+			},
+			"distance": 67.69130302437709,
+			"angle": [
+				-1.419750693407634,
+				2.445866241753951
+			]
+		},
+		{
+			"class_name": "vehicular_signal",
+			"instance_id": 152,
+			"data": [
+				[
+					1152.7626953125,
+					279.5947265625
+				],
+				[
+					1223.7593590561228,
+					298.63965659238784
+				]
+			],
+			"attribute": {
+				"signal": "green"
+			},
+			"distance": 69.30640416310102,
+			"angle": [
+				-3.8131926917866927,
+				2.5347033494418922
+			]
+		},
+		{
+			"class_name": "vehicular_signal",
+			"instance_id": 153,
+			"data": [
+				[
+					887.48046875,
+					453.896484375
+				],
+				[
+					907.69921875,
+					462.7000000000007
+				]
+			],
+			"attribute": {
+				"signal": "green"
+			},
+			"distance": null,
+			"angle": []
+		}
+	],
+	"flags": {
+		"v1": "front up",
+		"v2": "none"
+	}
+}

@@ -1,0 +1,133 @@
+{
+	"json_version": 1,
+	"file_name": "512_ND_0002_CF_006.jpg",
+	"image_name": "512_ND_0002_CF_006.jpg",
+	"image_size": [
+		1920,
+		1080
+	],
+	"num_of_object": 9,
+	"objects": [
+		{
+			"class_name": "invisible_signal",
+			"instance_id": 30,
+			"data": [
+				[
+					1041.57421875,
+					412.3291015625
+				],
+				[
+					1053.900390625,
+					422.84755786979076
+				]
+			],
+			"attribute": {
+				"signal": "None"
+			},
+			"distance": null,
+			"angle": []
+		},
+		{
+			"class_name": "vehicular_signal",
+			"instance_id": 24,
+			"data": [
+				[
+					914.970703125,
+					421.44677734375
+				],
+				[
+					938.681640625,
+					429.79931640625
+				]
+			],
+			"attribute": {
+				"signal": "green"
+			},
+			"distance": null,
+			"angle": []
+		},
+		{
+			"class_name": "vehicular_signal",
+			"instance_id": 24,
+			"data": [
+				[
+					858.484375,
+					422.62841796875
+				],
+				[
+					882.1953125,
+					430.98095703125
+				]
+			],
+			"attribute": {
+				"signal": "green"
+			},
+			"distance": null,
+			"angle": []
+		},
+		{
+			"class_name": "invisible_signal",
+			"instance_id": 21,
+			"data": [
+				[
+					480.5625,
+					424.0380859375
+				],
+				[
+					489.7419921875007,
+					449.8210937500007
+				]
+			],
+			"attribute": {
+				"signal": "None"
+			},
+			"distance": null,
+			"angle": []
+		},
+		{
+			"class_name": "invisible_signal",
+			"instance_id": 22,
+			"data": [
+				[
+					568.1953125,
+					417.900390625
+				],
+				[
+					592.6953125,
+					426.6494140625
+				]
+			],
+			"attribute": {
+				"signal": "None"
+			},
+			"distance": null,
+			"angle": []
+		},
+		{
+			"class_name": "invisible_signal",
+			"instance_id": 23,
+			"data": [
+				[
+					654.109375,
+					414.7998046875
+				],
+				[
+					682.26953125,
+					424.0263671875
+				]
+			],
+			"attribute": {
+				"signal": "None"
+			},
+			"distance": 69.5157396257571,
+			"angle": [
+				4.251774996796875,
+				0.3448938347460935
+			]
+		}
+	],
+	"flags": {
+		"v1": "front escape",
+		"v2": "none"
+	}
+}

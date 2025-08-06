@@ -1,0 +1,35 @@
+{
+	"json_version": 1,
+	"file_name": "512_ND_0003_CF_023.jpg",
+	"image_name": "512_ND_0003_CF_023.jpg",
+	"image_size": [
+		1920,
+		1080
+	],
+	"num_of_object": 3,
+	"objects": [
+		{
+			"class_name": "vehicular_signal",
+			"instance_id": 149,
+			"data": [
+				[
+					714.576171875,
+					455.26953125
+				],
+				[
+					730.8988281250022,
+					463.6000000000022
+				]
+			],
+			"attribute": {
+				"signal": "green"
+			},
+			"distance": null,
+			"angle": []
+		}
+	],
+	"flags": {
+		"v1": "none",
+		"v2": "none"
+	}
+}

@@ -1,0 +1,103 @@
+{
+	"version": null,
+	"imagePath": "512_ND_0011_CF_005.jpg",
+	"imageWidth": 1920,
+	"imageHeight": 1080,
+	"shapes": [
+		{
+			"label": "vehicular_signal",
+			"points": [
+				[
+					123,
+					170
+				],
+				[
+					166,
+					182
+				]
+			],
+			"shape_type": "rectangle",
+			"group_id": null,
+			"flags": {
+				"signal": "red",
+				"distance": null
+			}
+		},
+		{
+			"label": "invisible_signal",
+			"points": [
+				[
+					301,
+					247
+				],
+				[
+					307,
+					269
+				]
+			],
+			"shape_type": "rectangle",
+			"group_id": null,
+			"flags": {
+				"signal": "None",
+				"distance": null
+			}
+		},
+		{
+			"label": "vehicular_signal",
+			"points": [
+				[
+					177,
+					167
+				],
+				[
+					218,
+					179
+				]
+			],
+			"shape_type": "rectangle",
+			"group_id": null,
+			"flags": {
+				"signal": "red",
+				"distance": null
+			}
+		},
+		{
+			"label": "invisible_signal",
+			"points": [
+				[
+					273,
+					156
+				],
+				[
+					297,
+					168
+				]
+			],
+			"shape_type": "rectangle",
+			"group_id": null,
+			"flags": {
+				"signal": "None",
+				"distance": 66.49787685766935
+			}
+		},
+		{
+			"label": "invisible_signal",
+			"points": [
+				[
+					4,
+					174
+				],
+				[
+					42,
+					187
+				]
+			],
+			"shape_type": "rectangle",
+			"group_id": null,
+			"flags": {
+				"signal": "None",
+				"distance": 61.09254745197899
+			}
+		}
+	]
+}

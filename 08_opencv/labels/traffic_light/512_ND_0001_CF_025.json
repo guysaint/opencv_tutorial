@@ -1,0 +1,142 @@
+{
+	"json_version": 1,
+	"file_name": "512_ND_0001_CF_025.jpg",
+	"image_name": "512_ND_0001_CF_025.jpg",
+	"image_size": [
+		1920,
+		1080
+	],
+	"num_of_object": 6,
+	"objects": [
+		{
+			"class_name": "invisible_signal",
+			"instance_id": 0,
+			"data": [
+				[
+					310.314453125,
+					127.640625
+				],
+				[
+					390.2000000000007,
+					156.60000000000218
+				]
+			],
+			"attribute": {
+				"signal": "None"
+			},
+			"distance": 53.06382796660986,
+			"angle": [
+				8.85035766109126,
+				4.775135760768225
+			]
+		},
+		{
+			"class_name": "vehicular_signal",
+			"instance_id": 1,
+			"data": [
+				[
+					531.720703125,
+					121.48046875
+				],
+				[
+					635.6000000000022,
+					152.90000000000146
+				]
+			],
+			"attribute": {
+				"signal": "green and green arrow"
+			},
+			"distance": 52.49271917287706,
+			"angle": [
+				5.321055718868874,
+				4.79619190580906
+			]
+		},
+		{
+			"class_name": "vehicular_signal",
+			"instance_id": 23,
+			"data": [
+				[
+					1474.841796875,
+					273.138671875
+				],
+				[
+					1519.800000000003,
+					286.3000000000029
+				]
+			],
+			"attribute": {
+				"signal": "green and green arrow"
+			},
+			"distance": null,
+			"angle": []
+		},
+		{
+			"class_name": "vehicular_signal",
+			"instance_id": 22,
+			"data": [
+				[
+					1369.552734375,
+					277.38671875
+				],
+				[
+					1414.7000000000007,
+					290.2000000000007
+				]
+			],
+			"attribute": {
+				"signal": "green and green arrow"
+			},
+			"distance": null,
+			"angle": []
+		},
+		{
+			"class_name": "invisible_signal",
+			"instance_id": 3,
+			"data": [
+				[
+					1744.63330078125,
+					113.5625228881836
+				],
+				[
+					1816.7855224609375,
+					133.185546875
+				]
+			],
+			"attribute": {
+				"signal": "None"
+			},
+			"distance": 63.91557811560294,
+			"angle": [
+				-12.590401756271017,
+				4.463786033539821
+			]
+		},
+		{
+			"class_name": "vehicular_signal",
+			"instance_id": 2,
+			"data": [
+				[
+					1844.87890625,
+					143.9619140625
+				],
+				[
+					1906.4000000000015,
+					169.6237335205078
+				]
+			],
+			"attribute": {
+				"signal": "green arrow"
+			},
+			"distance": 60.85769215309172,
+			"angle": [
+				-14.01252486039606,
+				3.769931554643977
+			]
+		}
+	],
+	"flags": {
+		"v1": "front up",
+		"v2": "none"
+	}
+}

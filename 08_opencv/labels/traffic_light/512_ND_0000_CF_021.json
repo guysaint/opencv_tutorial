@@ -1,0 +1,155 @@
+{
+	"json_version": 1,
+	"file_name": "512_ND_0000_CF_021.jpg",
+	"image_name": "512_ND_0000_CF_021.jpg",
+	"image_size": [
+		1920,
+		1080
+	],
+	"num_of_object": 7,
+	"objects": [
+		{
+			"class_name": "invisible_signal",
+			"instance_id": 147,
+			"data": [
+				[
+					481.60791015625,
+					371.50439453125
+				],
+				[
+					527.7696506403518,
+					389.22617229618754
+				]
+			],
+			"attribute": {
+				"signal": "None"
+			},
+			"distance": 55.44799465969198,
+			"angle": [
+				6.767808369065139,
+				0.924709187729368
+			]
+		},
+		{
+			"class_name": "invisible_signal",
+			"instance_id": 148,
+			"data": [
+				[
+					607.912109375,
+					362.8994140625
+				],
+				[
+					621.1967077988356,
+					377.8192068985263
+				]
+			],
+			"attribute": {
+				"signal": "None"
+			},
+			"distance": 68.41517590133651,
+			"angle": [
+				5.077138952372044,
+				1.0732864789783276
+			]
+		},
+		{
+			"class_name": "pedestrian_signal",
+			"instance_id": 149,
+			"data": [
+				[
+					292.3779296875,
+					468.70068359375
+				],
+				[
+					302.9201726440606,
+					484.64571266174244
+				]
+			],
+			"attribute": {
+				"signal": "red"
+			},
+			"distance": null,
+			"angle": []
+		},
+		{
+			"class_name": "vehicular_signal",
+			"instance_id": 150,
+			"data": [
+				[
+					618.060546875,
+					361.9306640625
+				],
+				[
+					667.4666992187485,
+					379.7788792523461
+				]
+			],
+			"attribute": {
+				"signal": "green"
+			},
+			"distance": null,
+			"angle": []
+		},
+		{
+			"class_name": "vehicular_signal",
+			"instance_id": 151,
+			"data": [
+				[
+					961.9736328125,
+					362.8525390625
+				],
+				[
+					1018.5415838068202,
+					379.980914851596
+				]
+			],
+			"attribute": {
+				"signal": "green"
+			},
+			"distance": null,
+			"angle": []
+		},
+		{
+			"class_name": "vehicular_signal",
+			"instance_id": 152,
+			"data": [
+				[
+					1081.4052734375,
+					359.4375
+				],
+				[
+					1137.5025111607156,
+					375.33409606388886
+				]
+			],
+			"attribute": {
+				"signal": "green"
+			},
+			"distance": null,
+			"angle": []
+		},
+		{
+			"class_name": "vehicular_signal",
+			"instance_id": 153,
+			"data": [
+				[
+					875.5835851064039,
+					478.19503107341734
+				],
+				[
+					895.752684368108,
+					486.8012774061099
+				]
+			],
+			"attribute": {
+				"signal": "green"
+			},
+			"distance": null,
+			"angle": []
+		}
+	],
+	"flags": {
+		"v1": "front up",
+		"v2": "none"
+	}
+}

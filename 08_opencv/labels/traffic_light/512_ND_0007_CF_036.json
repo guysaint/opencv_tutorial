@@ -1,0 +1,122 @@
+{
+	"version": null,
+	"imagePath": "512_ND_0007_CF_036.jpg",
+	"imageWidth": 1920,
+	"imageHeight": 1080,
+	"shapes": [
+		{
+			"label": "vehicular_signal",
+			"points": [
+				[
+					692,
+					257
+				],
+				[
+					747,
+					277
+				]
+			],
+			"shape_type": "rectangle",
+			"group_id": null,
+			"flags": {
+				"signal": "red",
+				"distance": null
+			}
+		},
+		{
+			"label": "invisible_signal",
+			"points": [
+				[
+					242,
+					286
+				],
+				[
+					313,
+					304
+				]
+			],
+			"shape_type": "rectangle",
+			"group_id": null,
+			"flags": {
+				"signal": "None",
+				"distance": 68.31751256396198
+			}
+		},
+		{
+			"label": "invisible_signal",
+			"points": [
+				[
+					948,
+					241
+				],
+				[
+					970,
+					262
+				]
+			],
+			"shape_type": "rectangle",
+			"group_id": null,
+			"flags": {
+				"signal": "None",
+				"distance": 67.2773706825652
+			}
+		},
+		{
+			"label": "vehicular_signal",
+			"points": [
+				[
+					392,
+					185
+				],
+				[
+					468,
+					210
+				]
+			],
+			"shape_type": "rectangle",
+			"group_id": null,
+			"flags": {
+				"signal": "red",
+				"distance": 53.83478438125385
+			}
+		},
+		{
+			"label": "invisible_signal",
+			"points": [
+				[
+					860,
+					341
+				],
+				[
+					886,
+					384
+				]
+			],
+			"shape_type": "rectangle",
+			"group_id": null,
+			"flags": {
+				"signal": "None",
+				"distance": 52.8802415724827
+			}
+		},
+		{
+			"label": "invisible_signal",
+			"points": [
+				[
+					824,
+					376
+				],
+				[
+					836,
+					385
+				]
+			],
+			"shape_type": "rectangle",
+			"group_id": null,
+			"flags": {
+				"signal": "None",
+				"distance": null
+			}
+		}
+	]
+}

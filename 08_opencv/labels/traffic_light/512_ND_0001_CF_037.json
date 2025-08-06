@@ -1,0 +1,92 @@
+{
+	"json_version": 1,
+	"file_name": "512_ND_0001_CF_037.jpg",
+	"image_name": "512_ND_0001_CF_037.jpg",
+	"image_size": [
+		1920,
+		1080
+	],
+	"num_of_object": 4,
+	"objects": [
+		{
+			"class_name": "vehicular_signal",
+			"instance_id": 23,
+			"data": [
+				[
+					1505.7000000000007,
+					254.20000000000073
+				],
+				[
+					1562.162498474121,
+					271.3218746185303
+				]
+			],
+			"attribute": {
+				"signal": "green and green arrow"
+			},
+			"distance": null,
+			"angle": []
+		},
+		{
+			"class_name": "vehicular_signal",
+			"instance_id": 22,
+			"data": [
+				[
+					1379.654296875,
+					258.44140625
+				],
+				[
+					1434.4000000000015,
+					274.0
+				]
+			],
+			"attribute": {
+				"signal": "green and green arrow"
+			},
+			"distance": null,
+			"angle": []
+		},
+		{
+			"class_name": "vehicular_signal",
+			"instance_id": 29,
+			"data": [
+				[
+					638.162109375,
+					451.818359375
+				],
+				[
+					675.5207645353767,
+					465.60116419144833
+				]
+			],
+			"attribute": {
+				"signal": "red"
+			},
+			"distance": null,
+			"angle": []
+		},
+		{
+			"class_name": "pedestrian_signal",
+			"instance_id": 30,
+			"data": [
+				[
+					1331.9296875,
+					486.5
+				],
+				[
+					1344.5236246495333,
+					500.5329113006592
+				]
+			],
+			"attribute": {
+				"signal": "green"
+			},
+			"distance": null,
+			"angle": []
+		}
+	],
+	"flags": {
+		"v1": "front up",
+		"v2": "none"
+	}
+}

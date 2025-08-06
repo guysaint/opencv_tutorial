@@ -1,0 +1,117 @@
+{
+	"json_version": 1,
+	"file_name": "512_ND_0002_CF_012.jpg",
+	"image_name": "512_ND_0002_CF_012.jpg",
+	"image_size": [
+		1920,
+		1080
+	],
+	"num_of_object": 8,
+	"objects": [
+		{
+			"class_name": "invisible_signal",
+			"instance_id": 23,
+			"data": [
+				[
+					656.0,
+					392.2001953125
+				],
+				[
+					686.7001953125,
+					402.1083984375
+				]
+			],
+			"attribute": {
+				"signal": "None"
+			},
+			"distance": 66.23367941337719,
+			"angle": [
+				4.203137355214844,
+				0.6754114773046878
+			]
+		},
+		{
+			"class_name": "invisible_signal",
+			"instance_id": 22,
+			"data": [
+				[
+					559.099609375,
+					396.1806640625
+				],
+				[
+					589.400390625,
+					405.54296875
+				]
+			],
+			"attribute": {
+				"signal": "None"
+			},
+			"distance": 66.95377192166615,
+			"angle": [
+				5.69736415,
+				0.6203590388378908
+			]
+		},
+		{
+			"class_name": "vehicular_signal",
+			"instance_id": 24,
+			"data": [
+				[
+					879.0966796875,
+					400.5
+				],
+				[
+					905.697265625,
+					409.29296875
+				]
+			],
+			"attribute": {
+				"signal": "green"
+			},
+			"distance": null,
+			"angle": []
+		},
+		{
+			"class_name": "vehicular_signal",
+			"instance_id": 25,
+			"data": [
+				[
+					941.2978515625,
+					398.599609375
+				],
+				[
+					967.0009765625,
+					406.6044921875
+				]
+			],
+			"attribute": {
+				"signal": "green"
+			},
+			"distance": null,
+			"angle": []
+		},
+		{
+			"class_name": "invisible_signal",
+			"instance_id": 30,
+			"data": [
+				[
+					1080.28515625,
+					388.08203125
+				],
+				[
+					1093.1851562500015,
+					399.0818359375007
+				]
+			],
+			"attribute": {
+				"signal": "None"
+			},
+			"distance": null,
+			"angle": []
+		}
+	],
+	"flags": {
+		"v1": "front escape",
+		"v2": "none"
+	}
+}

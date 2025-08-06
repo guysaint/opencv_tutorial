@@ -1,0 +1,60 @@
+{
+	"json_version": 1,
+	"file_name": "512_ND_0009_CF_031.jpg",
+	"image_name": "512_ND_0009_CF_031.jpg",
+	"image_size": [
+		1920,
+		1080
+	],
+	"num_of_object": 2,
+	"objects": [
+		{
+			"class_name": "invisible_signal",
+			"instance_id": 25,
+			"data": [
+				[
+					46.2265625,
+					302.763671875
+				],
+				[
+					104.24531250000109,
+					322.56367111206055
+				]
+			],
+			"attribute": {
+				"signal": "None"
+			},
+			"distance": 58.44634482735066,
+			"angle": [
+				13.376452031062492,
+				1.9300009449065785
+			]
+		},
+		{
+			"class_name": "invisible_signal",
+			"instance_id": 6,
+			"data": [
+				[
+					1197.6724853515625,
+					224.78944396972656
+				],
+				[
+					1250.8067626953125,
+					374.3088073730469
+				]
+			],
+			"attribute": {
+				"signal": "None"
+			},
+			"distance": 31.876661696065145,
+			"angle": [
+				-4.115825862141465,
+				1.434530317759618
+			]
+		}
+	],
+	"flags": {
+		"v1": "none",
+		"v2": "none"
+	}
+}

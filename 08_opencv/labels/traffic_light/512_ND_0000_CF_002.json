@@ -1,0 +1,133 @@
+{
+	"json_version": 1,
+	"file_name": "512_ND_0000_CF_002.jpg",
+	"image_name": "512_ND_0000_CF_002.jpg",
+	"image_size": [
+		1920,
+		1080
+	],
+	"num_of_object": 6,
+	"objects": [
+		{
+			"class_name": "invisible_signal",
+			"instance_id": 147,
+			"data": [
+				[
+					534.5146484375,
+					399.099609375
+				],
+				[
+					574.6539355565874,
+					413.4891651346734
+				]
+			],
+			"attribute": {
+				"signal": "None"
+			},
+			"distance": 61.52535506244069,
+			"angle": [
+				5.999990290917653,
+				0.5396915548671455
+			]
+		},
+		{
+			"class_name": "invisible_signal",
+			"instance_id": 148,
+			"data": [
+				[
+					640.6025390625,
+					392.083984375
+				],
+				[
+					650.5601775414707,
+					406.82688482261074
+				]
+			],
+			"attribute": {
+				"signal": "None"
+			},
+			"distance": null,
+			"angle": []
+		},
+		{
+			"class_name": "pedestrian_signal",
+			"instance_id": 149,
+			"data": [
+				[
+					374.1650390625,
+					481.697265625
+				],
+				[
+					384.7072820190606,
+					495.51123915428616
+				]
+			],
+			"attribute": {
+				"signal": "red"
+			},
+			"distance": null,
+			"angle": []
+		},
+		{
+			"class_name": "vehicular_signal",
+			"instance_id": 150,
+			"data": [
+				[
+					650.1943359375,
+					391.2158203125
+				],
+				[
+					688.41015625,
+					406.2283735448673
+				]
+			],
+			"attribute": {
+				"signal": "green"
+			},
+			"distance": null,
+			"angle": []
+		},
+		{
+			"class_name": "vehicular_signal",
+			"instance_id": 151,
+			"data": [
+				[
+					934.884765625,
+					387.73046875
+				],
+				[
+					981.2374053030326,
+					402.6744658489624
+				]
+			],
+			"attribute": {
+				"signal": "green"
+			},
+			"distance": null,
+			"angle": []
+		},
+		{
+			"class_name": "vehicular_signal",
+			"instance_id": 152,
+			"data": [
+				[
+					1034.09765625,
+					384.53125
+				],
+				[
+					1079.306851881378,
+					398.12714047334885
+				]
+			],
+			"attribute": {
+				"signal": "green"
+			},
+			"distance": null,
+			"angle": []
+		}
+	],
+	"flags": {
+		"v1": "front up",
+		"v2": "none"
+	}
+}

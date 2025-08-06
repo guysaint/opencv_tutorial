@@ -1,0 +1,133 @@
+{
+	"json_version": 1,
+	"file_name": "512_ND_0000_CF_004.jpg",
+	"image_name": "512_ND_0000_CF_004.jpg",
+	"image_size": [
+		1920,
+		1080
+	],
+	"num_of_object": 6,
+	"objects": [
+		{
+			"class_name": "invisible_signal",
+			"instance_id": 147,
+			"data": [
+				[
+					518.6103515625,
+					400.6142578125
+				],
+				[
+					558.7496386815874,
+					415.0038135721734
+				]
+			],
+			"attribute": {
+				"signal": "None"
+			},
+			"distance": 61.662394682976405,
+			"angle": [
+				6.244733881464528,
+				0.5172007522694893
+			]
+		},
+		{
+			"class_name": "invisible_signal",
+			"instance_id": 148,
+			"data": [
+				[
+					626.9052734375,
+					391.73095703125
+				],
+				[
+					637.1784260438089,
+					406.3152930194037
+				]
+			],
+			"attribute": {
+				"signal": "None"
+			},
+			"distance": null,
+			"angle": []
+		},
+		{
+			"class_name": "pedestrian_signal",
+			"instance_id": 149,
+			"data": [
+				[
+					356.80859375,
+					485.81787109375
+				],
+				[
+					367.3508367065606,
+					499.63184462303616
+				]
+			],
+			"attribute": {
+				"signal": "red"
+			},
+			"distance": null,
+			"angle": []
+		},
+		{
+			"class_name": "vehicular_signal",
+			"instance_id": 150,
+			"data": [
+				[
+					635.7353515625,
+					392.3203125
+				],
+				[
+					675.1291015625011,
+					407.63135646473347
+				]
+			],
+			"attribute": {
+				"signal": "green"
+			},
+			"distance": null,
+			"angle": []
+		},
+		{
+			"class_name": "vehicular_signal",
+			"instance_id": 151,
+			"data": [
+				[
+					925.3115234375,
+					389.2431640625
+				],
+				[
+					972.7394590435624,
+					404.41709576042285
+				]
+			],
+			"attribute": {
+				"signal": "green"
+			},
+			"distance": null,
+			"angle": []
+		},
+		{
+			"class_name": "vehicular_signal",
+			"instance_id": 152,
+			"data": [
+				[
+					1026.53466796875,
+					385.517578125
+				],
+				[
+					1072.8899732940044,
+					399.3556481341948
+				]
+			],
+			"attribute": {
+				"signal": "green"
+			},
+			"distance": null,
+			"angle": []
+		}
+	],
+	"flags": {
+		"v1": "front up",
+		"v2": "none"
+	}
+}

@@ -1,0 +1,60 @@
+{
+	"json_version": 1,
+	"file_name": "512_ND_0012_CF_032.jpg",
+	"image_name": "512_ND_0012_CF_032.jpg",
+	"image_size": [
+		1920,
+		1080
+	],
+	"num_of_object": 2,
+	"objects": [
+		{
+			"class_name": "pedestrian_signal",
+			"instance_id": 2,
+			"data": [
+				[
+					163.67117309570312,
+					203.23704528808594
+				],
+				[
+					193.28604125976562,
+					255.26254272460938
+				]
+			],
+			"attribute": {
+				"signal": "red"
+			},
+			"distance": 60.168802748840825,
+			"angle": [
+				11.51238358596423,
+				3.6626947108488643
+			]
+		},
+		{
+			"class_name": "invisible_signal",
+			"instance_id": 12,
+			"data": [
+				[
+					1279.890625,
+					150.919921875
+				],
+				[
+					1307.31103515625,
+					187.10000000000036
+				]
+			],
+			"attribute": {
+				"signal": "None"
+			},
+			"distance": 56.52957213222705,
+			"angle": [
+				-5.3142828025680915,
+				3.946782969573175
+			]
+		}
+	],
+	"flags": {
+		"v1": "front down",
+		"v2": "none"
+	}
+}

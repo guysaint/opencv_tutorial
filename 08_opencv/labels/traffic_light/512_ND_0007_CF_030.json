@@ -1,0 +1,142 @@
+{
+	"json_version": 1,
+	"file_name": "512_ND_0007_CF_030.jpg",
+	"image_name": "512_ND_0007_CF_030.jpg",
+	"image_size": [
+		1920,
+		1080
+	],
+	"num_of_object": 6,
+	"objects": [
+		{
+			"class_name": "invisible_signal",
+			"instance_id": 33,
+			"data": [
+				[
+					1109.619140625,
+					330.220703125
+				],
+				[
+					1132.0746897404279,
+					339.6112054823607
+				]
+			],
+			"attribute": {
+				"signal": "None"
+			},
+			"distance": 64.00332019076927,
+			"angle": [
+				-2.7139534112274983,
+				1.5995799127782533
+			]
+		},
+		{
+			"class_name": "vehicular_signal",
+			"instance_id": 2,
+			"data": [
+				[
+					421.578125,
+					209.599609375
+				],
+				[
+					489.50390625,
+					234.1611328125
+				]
+			],
+			"attribute": {
+				"signal": "red"
+			},
+			"distance": 60.529307511934434,
+			"angle": [
+				7.38186635810818,
+				3.6736275561636464
+			]
+		},
+		{
+			"class_name": "vehicular_signal",
+			"instance_id": 23,
+			"data": [
+				[
+					681.4765625,
+					267.826171875
+				],
+				[
+					730.7626953125,
+					286.1474609375
+				]
+			],
+			"attribute": {
+				"signal": "red"
+			},
+			"distance": null,
+			"angle": []
+		},
+		{
+			"class_name": "invisible_signal",
+			"instance_id": 25,
+			"data": [
+				[
+					269.2001953125,
+					292.1279296875
+				],
+				[
+					332.6142578125,
+					310.7978515625
+				]
+			],
+			"attribute": {
+				"signal": "None"
+			},
+			"distance": 57.121296241906855,
+			"angle": [
+				9.903704885898438,
+				2.0963197719140627
+			]
+		},
+		{
+			"class_name": "invisible_signal",
+			"instance_id": 27,
+			"data": [
+				[
+					740.888671875,
+					371.1552734375
+				],
+				[
+					758.21875,
+					379.2587890625
+				]
+			],
+			"attribute": {
+				"signal": "None"
+			},
+			"distance": null,
+			"angle": []
+		},
+		{
+			"class_name": "invisible_signal",
+			"instance_id": 30,
+			"data": [
+				[
+					916.4609375,
+					253.0087890625
+				],
+				[
+					937.108008193969,
+					271.2390625000007
+				]
+			],
+			"attribute": {
+				"signal": "None"
+			},
+			"distance": 68.90285469331796,
+			"angle": [
+				0.27238036390472153,
+				2.6804585534238226
+			]
+		}
+	],
+	"flags": {
+		"v1": "front up",
+		"v2": "none"
+	}
+}

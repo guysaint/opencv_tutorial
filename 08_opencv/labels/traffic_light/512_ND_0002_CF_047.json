@@ -1,0 +1,179 @@
+{
+	"version": null,
+	"imagePath": "512_ND_0002_CF_047.jpg",
+	"imageWidth": 1920,
+	"imageHeight": 1080,
+	"shapes": [
+		{
+			"label": "vehicular_signal",
+			"points": [
+				[
+					954,
+					458
+				],
+				[
+					968,
+					466
+				]
+			],
+			"shape_type": "rectangle",
+			"group_id": null,
+			"flags": {
+				"signal": "green",
+				"distance": null
+			}
+		},
+		{
+			"label": "vehicular_signal",
+			"points": [
+				[
+					931,
+					459
+				],
+				[
+					946,
+					467
+				]
+			],
+			"shape_type": "rectangle",
+			"group_id": null,
+			"flags": {
+				"signal": "green",
+				"distance": null
+			}
+		},
+		{
+			"label": "invisible_signal",
+			"points": [
+				[
+					1389,
+					274
+				],
+				[
+					1406,
+					293
+				]
+			],
+			"shape_type": "rectangle",
+			"group_id": null,
+			"flags": {
+				"signal": "None",
+				"distance": null
+			}
+		},
+		{
+			"label": "invisible_signal",
+			"points": [
+				[
+					289,
+					250
+				],
+				[
+					357,
+					275
+				]
+			],
+			"shape_type": "rectangle",
+			"group_id": null,
+			"flags": {
+				"signal": "None",
+				"distance": 64.40071734512061
+			}
+		},
+		{
+			"label": "invisible_signal",
+			"points": [
+				[
+					495,
+					241
+				],
+				[
+					566,
+					266
+				]
+			],
+			"shape_type": "rectangle",
+			"group_id": null,
+			"flags": {
+				"signal": "None",
+				"distance": 64.04241410818713
+			}
+		},
+		{
+			"label": "vehicular_signal",
+			"points": [
+				[
+					1088,
+					304
+				],
+				[
+					1139,
+					321
+				]
+			],
+			"shape_type": "rectangle",
+			"group_id": null,
+			"flags": {
+				"signal": "green",
+				"distance": null
+			}
+		},
+		{
+			"label": "invisible_signal",
+			"points": [
+				[
+					128,
+					274
+				],
+				[
+					151,
+					335
+				]
+			],
+			"shape_type": "rectangle",
+			"group_id": null,
+			"flags": {
+				"signal": "None",
+				"distance": 54.796609558832166
+			}
+		},
+		{
+			"label": "vehicular_signal",
+			"points": [
+				[
+					823,
+					459
+				],
+				[
+					837,
+					468
+				]
+			],
+			"shape_type": "rectangle",
+			"group_id": null,
+			"flags": {
+				"signal": "green",
+				"distance": null
+			}
+		},
+		{
+			"label": "vehicular_signal",
+			"points": [
+				[
+					971,
+					305
+				],
+				[
+					1021,
+					322
+				]
+			],
+			"shape_type": "rectangle",
+			"group_id": null,
+			"flags": {
+				"signal": "green",
+				"distance": null
+			}
+		}
+	]
+}

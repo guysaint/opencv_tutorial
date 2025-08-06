@@ -1,0 +1,133 @@
+{
+	"json_version": 1,
+	"file_name": "512_ND_0000_CF_012.jpg",
+	"image_name": "512_ND_0000_CF_012.jpg",
+	"image_size": [
+		1920,
+		1080
+	],
+	"num_of_object": 6,
+	"objects": [
+		{
+			"class_name": "invisible_signal",
+			"instance_id": 147,
+			"data": [
+				[
+					482.4287109375,
+					385.1630859375
+				],
+				[
+					525.4020937577698,
+					401.1207461702397
+				]
+			],
+			"attribute": {
+				"signal": "None"
+			},
+			"distance": 58.57941951883276,
+			"angle": [
+				6.779709512665374,
+				0.7349907583843338
+			]
+		},
+		{
+			"class_name": "invisible_signal",
+			"instance_id": 148,
+			"data": [
+				[
+					599.12255859375,
+					373.244140625
+				],
+				[
+					610.6577677094056,
+					387.1942187753275
+				]
+			],
+			"attribute": {
+				"signal": "None"
+			},
+			"distance": null,
+			"angle": []
+		},
+		{
+			"class_name": "pedestrian_signal",
+			"instance_id": 149,
+			"data": [
+				[
+					309.4716796875,
+					470.62890625
+				],
+				[
+					320.0139226440606,
+					486.57393531799244
+				]
+			],
+			"attribute": {
+				"signal": "red"
+			},
+			"distance": null,
+			"angle": []
+		},
+		{
+			"class_name": "vehicular_signal",
+			"instance_id": 150,
+			"data": [
+				[
+					607.466796875,
+					370.8603515625
+				],
+				[
+					651.572265625,
+					387.36535845669823
+				]
+			],
+			"attribute": {
+				"signal": "green"
+			},
+			"distance": null,
+			"angle": []
+		},
+		{
+			"class_name": "vehicular_signal",
+			"instance_id": 151,
+			"data": [
+				[
+					920.92578125,
+					370.2509765625
+				],
+				[
+					972.6549005681845,
+					386.3446466562673
+				]
+			],
+			"attribute": {
+				"signal": "green"
+			},
+			"distance": null,
+			"angle": []
+		},
+		{
+			"class_name": "vehicular_signal",
+			"instance_id": 152,
+			"data": [
+				[
+					1028.2421875,
+					366.78125
+				],
+				[
+					1079.181931600764,
+					381.58803815258216
+				]
+			],
+			"attribute": {
+				"signal": "green"
+			},
+			"distance": null,
+			"angle": []
+		}
+	],
+	"flags": {
+		"v1": "front up",
+		"v2": "none"
+	}
+}
