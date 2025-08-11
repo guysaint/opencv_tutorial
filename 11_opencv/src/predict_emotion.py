@@ -106,6 +106,11 @@ network.add(Dense(num_classes, activation='softmax'))
 
 network.summary()
 
+# 모델 훈련
+network.compile(optimizer='Adam', loss='categorical_crossentropy', metrics=['accuracy'])
+epochs = 5
+
+
 # 모델 성능 평가
 network.evaluate(test_dataset)
 preds = network.predict(test_dataset)
