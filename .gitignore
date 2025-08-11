@@ -1,5 +1,7 @@
 
 ./09_opencv/data/
+09_opencv/src/build
+09_opencv/src/dist
 11_opencv/data/
 
 # ---------------------------
