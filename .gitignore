@@ -1,4 +1,85 @@
-myvenv/
-.DS_Store
+
 ./09_opencv/data/
 11_opencv/data/
+
+# ---------------------------
+# macOS
+# ---------------------------
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+.Spotlight-V100
+.Trashes
+
+# ---------------------------
+# VSCode
+# ---------------------------
+.vscode/
+.history/
+*.code-workspace
+
+# ---------------------------
+# Python
+# ---------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+build/
+develop-eggs/
+dist/
+eggs/
+.eggs/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Pyenv
+.python-version
+
+# Virtualenv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+myvenv/
+
+# pyproject / poetry
+.poetry/
+
+# ---------------------------
+# 기타 IDE/에디터
+# ---------------------------
+.idea/
+*.sublime-project
+*.sublime-workspace
