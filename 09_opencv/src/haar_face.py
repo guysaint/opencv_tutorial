@@ -8,7 +8,7 @@ face_cascade = cv2.CascadeClassifier('../data/haarcascade_frontalface_default.xm
 eye_cascade = cv2.CascadeClassifier('../data/haarcascade_eye.xml')
 
 # 검출할 이미지 읽고 그레이 스케일로 변환
-img = cv2.imread('../img/like_lenna.png')
+img = cv2.imread('../img/people.jpg')
 gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 #gray = cv2.equalizeHist(gray)
 gray = cv2.convertScaleAbs(gray, alpha=1.1, beta=10)
