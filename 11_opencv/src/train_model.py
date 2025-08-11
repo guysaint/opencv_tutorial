@@ -50,3 +50,6 @@ network.add(Dropout(0.2))
 network.add(Dense(num_classes, activation='softmax'))
 
 network.summary()
+
+# 모델 성능 평가
+network.evaluate(test_dataset)
