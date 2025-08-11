@@ -108,7 +108,7 @@ network.summary()
 
 # 모델 훈련
 network.compile(optimizer='Adam', loss='categorical_crossentropy', metrics=['accuracy'])
-epochs = 5
+epochs = 10
 network.fit(train_dataset, epochs=epochs)
 
 # 모델 성능 평가
@@ -117,8 +117,8 @@ preds = network.predict(test_dataset)
 print(preds)
 preds = np.argmax(preds, axis=1)
 print(preds)
-test_dataset.classes
-accuracy_score(test_dataset.classes, preds)
+print(test_dataset.classes)
+print(accuracy_score(test_dataset.classes, preds))
 
 # 모델 저장
 network.save('../models/emotion_model.h5')
